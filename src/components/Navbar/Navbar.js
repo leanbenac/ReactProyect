@@ -2,6 +2,8 @@ import React from 'react'
 import "./Navbar.css"
 import Navbar from 'react-bootstrap/Navbar'
 import { Container ,Nav , NavDropdown } from 'react-bootstrap'
+import CartWidget from '../CartWidget/CartWidget'
+
 
 const NavBar = () => {
     return (
@@ -11,8 +13,8 @@ const NavBar = () => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
-                <Nav.Link href="#features">Features</Nav.Link>
-                <Nav.Link href="#pricing">Pricing</Nav.Link>
+                <Nav.Link href="#features">Home</Nav.Link>
+                <Nav.Link href="#pricing">About</Nav.Link>
                 <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
                     <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
@@ -22,9 +24,9 @@ const NavBar = () => {
                 </NavDropdown>
                 </Nav>
                 <Nav>
-                <Nav.Link href="#deets">More deets</Nav.Link>
+                <Nav.Link href="#deets">Carrito<CartWidget/></Nav.Link>
                 <Nav.Link eventKey={2} href="#memes">
-                    Dank memes
+                    Dank memes 
                 </Nav.Link>
                 </Nav>
             </Navbar.Collapse>
