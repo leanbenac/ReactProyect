@@ -1,15 +1,15 @@
 import React from 'react'
-import "./Navbar.css"
 import Navbar from 'react-bootstrap/Navbar'
 import { Container ,Nav , NavDropdown } from 'react-bootstrap'
 import CartWidget from '../CartWidget/CartWidget'
+import Badge from '../Badge/Badge'
 
 
 const NavBar = () => {
     return (
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
-            <Navbar.Brand href="#home">React E-commerce</Navbar.Brand>
+            <Navbar.Brand href="#home">Reznik E-commerce</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
@@ -24,7 +24,7 @@ const NavBar = () => {
                 </NavDropdown>
                 </Nav>
                 <Nav>
-                <Nav.Link href="#deets">Carrito<CartWidget/></Nav.Link>
+                <Nav.Link href="#deets">Carrito<CartWidget /><Badge /></Nav.Link>
                 <Nav.Link eventKey={2} href="#memes">
                     Dank memes 
                 </Nav.Link>
