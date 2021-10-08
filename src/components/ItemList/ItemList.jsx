@@ -1,8 +1,7 @@
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Item from '../Item/Item';
 import { Container, Row, Col } from 'react-bootstrap';
-import { productList } from '../data/data.js';
+import { productList } from '../../data/data.js';
 
 
 const ItemList = ( {addToCartWidget} ) => {
@@ -33,31 +32,26 @@ const ItemList = ( {addToCartWidget} ) => {
 
 
     return (
-            {products.lenght ? (<>
-
-
-        <div key={product.id} >
-        <Container>
-            <Row>
-            {products.map((product =>
-            <Col md="auto" lg="4">
-            <Item
-                nombre={product.nombre}
-                stock={product.stock}
-                precio={product.precio}
-                img={product.img}
-                addToCartWidget={addToCartWidget}
-            />
-            </Col>
-            ))}
-            </Row>
-        </Container>
-        </div>
-
-        <>) : (<p>Cargando productos...</p>) }
-
-    );
-};
-
-
-export default ItemList;
+            <div>
+                {products.lenght ? (
+                <Container>
+                    <Row>
+                    {products.map((product) => {
+                        return(
+                        <div key={product.id} >
+                            <Item
+                                nombre={product.nombre}
+                                stock={product.stock}
+                                precio={product.precio}
+                                img={product.img}
+                                addToCartWidget={addToCartWidget}
+                            />
+                        </div>
+                        )}
+                        )}</Row>
+                    </Container>
+            ) : (<p>Cargando productos...</p>) }
+            </div>
+        );
+    };
+    export default ItemList;

@@ -1,10 +1,9 @@
-/*En este archivo al que he llamado data.js, he declarado una constante con un array de productos, el cual a la vez estoy exportando con la palabra reservada "export" de esa manera podré importarla desde el componente que así lo requiera*/
-import moto1 from '../../img/moto1.jpg';
-import moto2 from '../../img/moto2.jpg';
-import moto3 from '../../img/moto3.jpg';
-import moto4 from '../../img/moto4.jpg';
-import moto5 from '../../img/moto5.jpg';
-import moto6 from '../../img/moto6.jpg';
+import moto1 from '../img/moto1.jpg';
+import moto2 from '../img/moto2.jpg';
+import moto3 from '../img/moto3.jpg';
+import moto4 from '../img/moto4.jpg';
+import moto5 from '../img/moto5.jpg';
+import moto6 from '../img/moto6.jpg';
 
 
 export const productList = [
@@ -66,4 +65,3 @@ export const productList = [
 
 
 ];
-    
