@@ -1,19 +1,19 @@
 import React from 'react'
 import Navbar from 'react-bootstrap/Navbar'
-import { Container ,Nav , NavDropdown } from 'react-bootstrap'
+import { Container ,Nav , NavDropdown} from 'react-bootstrap'
 import CartWidget from '../CartWidget/CartWidget'
 import Badge from '../Badge/Badge'
-
+// import logo from '../../img/logo.png'
 
 const NavBar = () => {
     return (
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
-            <Navbar.Brand href="#home">Reznik E-commerce</Navbar.Brand>
+            <Navbar.Brand  href="#home"> Reznik E-commerce</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
-                <Nav.Link href="#features">Home</Nav.Link>
+                <Nav.Link  href="#features">Home </Nav.Link>
                 <Nav.Link href="#pricing">About</Nav.Link>
                 <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
                     <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
