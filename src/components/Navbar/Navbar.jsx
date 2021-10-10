@@ -3,13 +3,14 @@ import Navbar from 'react-bootstrap/Navbar'
 import { Container ,Nav , NavDropdown} from 'react-bootstrap'
 import CartWidget from '../CartWidget/CartWidget'
 import Badge from '../Badge/Badge'
-// import logo from '../../img/logo.png'
+import logo from '../../img/logo.png'
+import '../Navbar/Navbar.css';
 
 const NavBar = () => {
     return (
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
-            <Navbar.Brand  href="#home"> Reznik E-commerce</Navbar.Brand>
+            <Navbar.Brand  href="#home"><img src={logo} className="imgNav" alt="cuadros"></img>Reznik E-commerce</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">

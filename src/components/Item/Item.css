@@ -1,5 +1,5 @@
 .card {
-height: 500px;
+height: 480px;
 width: 300px;
 text-align: center;
 margin-top: 20px;
@@ -13,4 +13,10 @@ margin-left: 30px;
 
 .stock {
     padding-top: 10px;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
 }

@@ -6,8 +6,8 @@ import moto5 from '../img/moto5.jpg';
 import moto6 from '../img/moto6.jpg';
 
 
-export const productList = [
-    {
+export const productsList = [
+        {
         id:1 ,
         nombre: 'Ducatti',
         stock:6,
@@ -18,7 +18,7 @@ export const productList = [
         {
         id:2 ,
         nombre: 'Honda',
-        stock:6, 
+        stock:8, 
         precio: 250000, 
         img: moto2,
         },
@@ -26,7 +26,7 @@ export const productList = [
         {
         id:3 , 
         nombre: 'BMW', 
-        stock:6, 
+        stock:0, 
         precio: 189000, 
         img: moto3
         },
@@ -34,15 +34,7 @@ export const productList = [
         {
         id:4 , 
         nombre: 'KTM',  
-        stock:6,
-        precio: 162000, 
-        img: moto4
-        },
-
-        {
-        id:4 , 
-        nombre: 'KTM',  
-        stock:6,
+        stock:7,
         precio: 162000, 
         img: moto4
         },
@@ -50,7 +42,7 @@ export const productList = [
         {
         id:5 , 
         nombre: "Benelli", 
-        stock:6, 
+        stock:3, 
         precio: 153000, 
         img: moto5
         },
@@ -58,10 +50,9 @@ export const productList = [
         {
         id:6 , 
         nombre: "Yamaha", 
-        stock:6, 
+        stock:1, 
         precio: 171000, 
         img: moto6
         },
-
 
 ];
