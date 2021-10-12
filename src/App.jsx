@@ -1,9 +1,15 @@
-import './App.css';
 // import React, { useState } from 'react';
-import NavBar from "./components/Navbar/Navbar";
+import './App.css';
+
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+
+import NavBar from './components/Navbar/Navbar';
+import Home from './pages/Home';
+// import DetailPage from './pages/DetailPage';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import 'bootstrap/dist/css/bootstrap.css';
-// import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
+
 
 
 function App() {
@@ -21,12 +27,28 @@ function App() {
 // }
 
   return (
-    <div className="App ">
-      <div className="wrapper">
-        <NavBar />
-        <ItemListContainer />
-      </div>
-    </div>
+
+    <Router>
+        <div className="wrapper">
+          <NavBar />
+            <Switch>
+
+              <Route exact path="/productos">
+                <ItemListContainer />
+              </Route>
+
+              <Route exact path="/productos/:id">
+              <ItemDetailContainer id={1} />
+              </Route>
+
+              <Route exact path="/" >
+                <Home />
+              </Route>
+
+            </Switch>
+            
+        </div>
+    </Router>
   );
 }
 

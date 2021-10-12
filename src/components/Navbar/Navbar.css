@@ -4,7 +4,7 @@
 
 .imgNav{  
     transition: 2s;  
-    box-shadow:rgb(54,54,54);
+    box-shadow:rgb(255, 255, 255);
     animation: movimiento 3s ease-in-out infinite;
 }
 

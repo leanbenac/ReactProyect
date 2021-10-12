@@ -13,6 +13,8 @@ export const productsList = [
         stock:6,
         precio: 180000,
         img: moto1,
+        modelo: 'Sport',
+        descripcion:'Alcanza una velocidad de 350km/h.',
         },
 
         {
@@ -21,6 +23,7 @@ export const productsList = [
         stock:8, 
         precio: 250000, 
         img: moto2,
+        modelo: 'Sport',
         },
 
         {
@@ -36,7 +39,8 @@ export const productsList = [
         nombre: 'KTM',  
         stock:7,
         precio: 162000, 
-        img: moto4
+        img: moto4,
+        modelo: 'Sport',
         },
 
         {
@@ -44,7 +48,8 @@ export const productsList = [
         nombre: "Benelli", 
         stock:3, 
         precio: 153000, 
-        img: moto5
+        img: moto5,
+        modelo: 'Sport',
         },
 
         {
@@ -52,7 +57,8 @@ export const productsList = [
         nombre: "Yamaha", 
         stock:1, 
         precio: 171000, 
-        img: moto6
+        img: moto6,
+        modelo: 'Sport',
         },
 
 ];
