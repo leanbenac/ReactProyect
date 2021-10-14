@@ -15,16 +15,18 @@ const ItemDetail = ({ item,id }) => {
             <img src={moto1} class="card-img-top" alt="..."/>
 
                 <Link to={`/productos/${id}`}>
-                <h2 className="card-title">{item.nombre}</h2>
+                <h2 >{item.nombre}</h2>
                 </Link>
+                
+                <ul className="info-grid">
 
-                <p className="descripcion">{item.descripcion}</p>
-                    <ul className="info-grid">
-                        <li>Precio:</li>
-                        <li>${item.precio}</li>
-                        <li>modelo:</li>
-                        <li>{item.modelo}</li>
-                    </ul>
+                    <li>Modelo<br></br>  {item.modelo}</li>
+                        
+                    <li>Precio ${item.precio}</li>
+                        
+                </ul>
+
+                    <p className="descripcion">{item.descripcion}</p>
                 <ItemCount stock={item.stock} /> 
         </div>
     )

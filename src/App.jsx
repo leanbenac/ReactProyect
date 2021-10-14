@@ -6,9 +6,9 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 
 import NavBar from './components/Navbar/Navbar';
 import Home from './pages/Home';
-// import DetailPage from './pages/DetailPage';
+// import Footer from './components/Footer/Footer'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-
+// import DetailPage from './pages/DetailPage';
 
 
 
@@ -33,11 +33,11 @@ function App() {
           <NavBar />
             <Switch>
 
-              <Route exact path="/productos">
+              <Route exact path="/category">
                 <ItemListContainer />
               </Route>
 
-              <Route exact path="/productos/:id">
+              <Route exact path="/category/:id">
               <ItemDetailContainer id={1} />
               </Route>
 
@@ -46,8 +46,8 @@ function App() {
               </Route>
 
             </Switch>
-            
         </div>
+        
     </Router>
   );
 }

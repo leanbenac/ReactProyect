@@ -5,7 +5,7 @@ const Item = ({nombre , precio , img , modelo , stock}) => {
     return (
       <div class="container">
         <div class="row "> 
-          <div class="col-sm-6">
+          <div class="col-sm-6 mt-5">
             <div class="card">
               <img src={img} class="card-img-top" alt="..."/>
               <div class="card-body">
