@@ -4,7 +4,6 @@ import '../Item/Item.css';
 
 const ItemCount = ({ remove , add , stock , addToCartWidget}) => {
 const [cantidad , setCantidad] = useState(1)
-
 // eslint-disable-next-line 
     function add() {
         if(cantidad <  stock) setCantidad(cantidad + 1)

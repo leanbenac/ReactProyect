@@ -17,12 +17,12 @@ const ItemList = () => {
     <>
     {products.length ? (
       <>
-        <div className="container ">
+        <div className="container">
           <div className="row mb-5">
             {
                 products.map((product) =>  (
                 
-                <div className="col-sm-12 col-md-6 col-lg-4  " >
+                <div className="col-sm-12 col-md-6 col-lg-4" >
                 <Item
                 key={product.id} 
                 nombre={product.nombre}

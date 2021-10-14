@@ -18,3 +18,11 @@
         }
         to{transform: translate(0) translateZ(0)}
 }
+
+.link{
+    text-decoration:  none;
+    color:aliceblue;
+}
+.link:hover{
+    color: cadetblue;
+}

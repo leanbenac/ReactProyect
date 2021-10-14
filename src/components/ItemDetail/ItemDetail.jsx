@@ -1,22 +1,20 @@
 //componente presentaciontal
-
 import React from 'react'
 import ItemCount from '../ItemCount/ItemCount';
 import './ItemDetail.css'
 import moto1 from '../../img/moto1.jpg';
-import { Link } from 'react-router-dom';
 
 
-const ItemDetail = ({ item,id }) => {
+const ItemDetail = ({ item }) => {
     
     return (
         
-        <div className="card mt-5 ">
+        <div className="card mt-5 mb-5">
             <img src={moto1} class="card-img-top" alt="..."/>
 
-                <Link to={`/productos/${id}`}>
+                
                 <h2 >{item.nombre}</h2>
-                </Link>
+                
                 
                 <ul className="info-grid">
 
@@ -27,10 +25,10 @@ const ItemDetail = ({ item,id }) => {
                 </ul>
 
                     <p className="descripcion">{item.descripcion}</p>
-                <ItemCount stock={item.stock} /> 
+                <ItemCount stock={item.stock} initial={1}/> 
         </div>
     )
 }
 
-export default ItemDetail
+export default ItemDetail;
 

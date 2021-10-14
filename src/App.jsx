@@ -2,13 +2,13 @@
 import './App.css';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+// import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 
 import NavBar from './components/Navbar/Navbar';
 import Home from './pages/Home';
-// import Footer from './components/Footer/Footer'
+import Footer from './components/Footer/Footer'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-// import DetailPage from './pages/DetailPage';
+import Products from './pages/Products';
 
 
 
@@ -33,12 +33,12 @@ function App() {
           <NavBar />
             <Switch>
 
-              <Route exact path="/category">
+              <Route exact path="/products">
                 <ItemListContainer />
               </Route>
 
-              <Route exact path="/category/:id">
-              <ItemDetailContainer id={1} />
+              <Route exact path="/products/:id">
+              <Products />
               </Route>
 
               <Route exact path="/" >
@@ -46,6 +46,7 @@ function App() {
               </Route>
 
             </Switch>
+            <Footer />
         </div>
         
     </Router>
