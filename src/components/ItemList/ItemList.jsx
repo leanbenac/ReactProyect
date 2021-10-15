@@ -22,9 +22,9 @@ const ItemList = () => {
             {
                 products.map((product) =>  (
                 
-                <div className="col-sm-12 col-md-6 col-lg-4" >
+                <div  key={product.id} className="col-sm-12 col-md-6 col-lg-4" >
                 <Item
-                key={product.id} 
+                id={product.id}
                 nombre={product.nombre}
                 stock={product.stock}
                 precio={product.precio}

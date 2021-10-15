@@ -3,7 +3,9 @@ import '../Item/Item.css';
 import { Link } from 'react-router-dom';
 
 const Item = ({nombre , precio , img , modelo , stock, id}) => {
+  console.log(id)
     return (
+      
       <div class="container">
         <div class="row "> 
           <div class="col-sm-6 mt-5">
@@ -11,6 +13,7 @@ const Item = ({nombre , precio , img , modelo , stock, id}) => {
               <img src={img} class="card-img-top" alt="..."/>
               <div class="card-body">
                 <Link to={`/products/${id}`} ><h5 class="card-title">{nombre}</h5></Link>
+                console.log(id)
                 <p class="card-text">{modelo}</p>
                 <p class="card-text">${precio}</p>  
               </div>
