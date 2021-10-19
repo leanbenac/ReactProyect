@@ -12,8 +12,10 @@ const Item = ({nombre , precio , img , modelo , stock, id}) => {
             <div class="card">
               <img src={img} class="card-img-top" alt="..."/>
               <div class="card-body">
-                <Link to={`/products/${id}`} ><h5 class="card-title">{nombre}</h5></Link>
-                
+                <h5 class="card-title">{nombre}</h5>
+                <Link to={`/products/${id}`} >
+                <button className="btn col-xs-6 btn-dark hover" >Ver más </button>
+                </Link>
                 <p class="card-text">{modelo}</p>
                 <p class="card-text">${precio}</p>  
               </div>
