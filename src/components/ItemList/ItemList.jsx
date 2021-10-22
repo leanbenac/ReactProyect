@@ -21,8 +21,8 @@ const ItemList = () => {
           <div className="row mb-5">
             {
                 products.map((product) =>  (
-                <div className="col-sm-12 col-md-6 col-lg-4" >
-                  <div  key={product.id} >
+                
+                  <div key={product.id} className="col-sm-12 col-md-6 col-lg-4"  >
                     <Item
                     id={product.id}
                     nombre={product.nombre}
@@ -31,7 +31,7 @@ const ItemList = () => {
                     img={product.img}
                     />
                   </div> 
-                </div>
+                
               )) 
             }
           </div>

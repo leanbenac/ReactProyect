@@ -1,46 +1,39 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useState } from 'react';
+
 import '../Item/Item.css';
 
 
-const ItemCount = ({ remove , add , stock }) => {
-const [cantidad , setCantidad] = useState(1)
 
-    // eslint-disable-next-line 
-    function add() {
-        if(cantidad <  stock) setCantidad(cantidad + 1)
-    };
-    // eslint-disable-next-line 
-    function remove() {
-        if( cantidad > 0) setCantidad(cantidad - 1)
-      };
 
-//evento show
-const [show, setShow]=React.useState(true);
+const ItemCount = ({ initial, stock, onAdd}) => {
+
+  const [qty, setQty] = useState(initial);
+
+  const addProduct = (num) => {
+    setQty(qty + num);
+  };
 
       return (
         
         <div>
-          { show? 
-
+          
           <>
           <div className="">
-            <button onClick={()=>remove()} className="btn col-xs-6 btn-dark" >-</button>
-              <span>Cantidad : {cantidad} </span>
-            <button onClick={()=>add()} className="btn col-xs-6 btn-dark ">+</button>
+            <button className="btn col-xs-6 btn-dark" onClick={() => addProduct(-1)} disabled={qty === initial ? true : null}> - </button>
+              <span>Cantidad : {qty} </span>
+            <button className="btn col-xs-6 btn-dark" onClick={() => addProduct(+1)} disabled={qty === stock ? true : null}> + </button>
           </div>
 
           <div>
-              <button onClick={()=>setShow(false )} className="btn btn-dark botonAgregar">Agregar al Carrito</button>
-              {/* <button onClick={()=>setShow(true )} className="btn btn-dark botonAgregar">Finalizar Compra</button> */}
+              <button className="btn btn-dark botonAgregar" onClick={() => onAdd(qty)} disabled={stock === 0 ? true : null}>Agregar al Carrito</button>
           </div>
 
           <div className="stock pb-6">
             <p>Stock disponible: {stock}</p>
           </div>
           </>
-          : <button onClick={()=>setShow(true && alert("Su compra fue exitosa! disfrute el viento en su cara!"))} className="btn btn-dark botonAgregar mb-5">Finalizar Compra</button>
-          }
-          
+            
         </div>
 
       );
