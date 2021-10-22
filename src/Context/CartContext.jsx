@@ -14,7 +14,6 @@ function CartContextProvider ({children}){
 
     function clearCart(){
         setCartList ([])
-
     }
 
     console.log();

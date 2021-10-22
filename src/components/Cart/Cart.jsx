@@ -1,5 +1,5 @@
-
 import { useCartContext } from '../../Context/CartContext';
+import {Link} from 'react-router-dom';
 
 const Cart = () => {
     const {cartList, clearCart} = useCartContext();
@@ -12,7 +12,7 @@ const Cart = () => {
                 {cartList.map(item => <li key={item.id}>{item.item.nommbre}</li>)}
                 </ul>
 
-                <button  className="btn btn-dark botonAgregar m-1">Seguir Comprando</button>
+                <Link to="/products"><button  className="btn btn-dark botonAgregar m-1">Seguir Comprando</button></Link>
                 <button onClick={()=>clearCart()} className="btn btn-dark botonAgregar m-1">Vaciar Carrito</button>
             </div>
             </section>

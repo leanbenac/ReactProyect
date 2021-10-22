@@ -1,14 +1,11 @@
 //componente presentaciontal
 import  {useState} from 'react';
-
-import ItemCount from '../ItemCount/ItemCount';
-import './ItemDetail.css'
-import moto1 from '../../img/moto1.jpg';
+import { useCartContext } from '../../Context/CartContext';
 import { Link } from 'react-router-dom';
+import ItemCount from '../ItemCount/ItemCount';
+import moto1 from '../../img/moto1.jpg';
 
-
-import { useCartContext } from '../../Context/CartContext'
-
+import './ItemDetail.css'
 
 const ItemDetail = ({ item }) => {
     
@@ -40,9 +37,10 @@ const ItemDetail = ({ item }) => {
                     <li>Precio ${item.precio}</li>                       
                 </ul>
                     <p className="descripcion">{item.descripcion}</p>
-                {hide ? <ItemCount stock={item.stock} initial={1} onAdd={onAdd}/>:null}
+                {hide ? <ItemCount stock={item.stock} initial={0} onAdd={onAdd}/>:null}
 
                 {show ? <Link to={'/cart'}><button className="btn btn-dark botonAgregar mb-5">Finalizar Compra</button></Link>:null}
+                
 
                 
         </div>

@@ -3,9 +3,6 @@ import { useState } from 'react';
 
 import '../Item/Item.css';
 
-
-
-
 const ItemCount = ({ initial, stock, onAdd}) => {
 
   const [qty, setQty] = useState(initial);
@@ -17,7 +14,6 @@ const ItemCount = ({ initial, stock, onAdd}) => {
       return (
         
         <div>
-          
           <>
           <div className="">
             <button className="btn col-xs-6 btn-dark" onClick={() => addProduct(-1)} disabled={qty === initial ? true : null}> - </button>
@@ -33,7 +29,6 @@ const ItemCount = ({ initial, stock, onAdd}) => {
             <p>Stock disponible: {stock}</p>
           </div>
           </>
-            
         </div>
 
       );
