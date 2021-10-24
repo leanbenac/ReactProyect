@@ -25,24 +25,27 @@ const ItemDetail = ({ item }) => {
 
     return (
         
-        
-        <div className="card mt-5 mb-5">
-            <img src={moto1} class="card-img-top" alt="..."/>
-                
-                <h2 >{item.nombre}</h2>
-
-                <ul className="info-grid">
-                    <li>Modelo<br></br>  {item.modelo}</li>
+        <div className="container">
+            <div className="row">
+                <div className="card mt-5 mb-5 col-md-6">
+                        <img src={moto1} class="card-img-top" alt="..."/>
                         
-                    <li>Precio ${item.precio}</li>                       
-                </ul>
-                    <p className="descripcion">{item.descripcion}</p>
-                {hide ? <ItemCount stock={item.stock} initial={1} onAdd={onAdd}/>:null}
+                        <h2 >{item.nombre}</h2>
 
-                {show ? <Link to={'/cart'}><button className="btn btn-dark botonAgregar mb-5">Finalizar Compra</button></Link>:null}
-                
+                        <ul className="info-grid">
+                            <li>Modelo<br></br>  {item.modelo}</li>
+                                
+                            <li>Precio ${item.precio}</li>                       
+                        </ul>
+                            <p className="descripcion">{item.descripcion}</p>
+                        {hide ? <ItemCount stock={item.stock} initial={1} onAdd={onAdd}/>:null}
 
-                
+                        {show ? <Link to={'/cart'}><button className="btn btn-dark botonAgregar btn__detail mb-1">Finalizar Compra</button></Link>:null}
+                        {show ? <Link to={'/products'}><button className="btn btn-dark botonAgregar btn__detail mb-5">Seguir Comprando</button></Link>:null}
+                        
+
+                </div>
+            </div>
         </div>
     )
 }

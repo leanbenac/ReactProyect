@@ -32,3 +32,11 @@
 li {
     margin-top: -20px;
 }
+
+.btn:hover{
+    color:darkcyan;
+}
+
+.btn__detail{
+    text-align: center;
+}

@@ -10,7 +10,9 @@ const Cart = () => {
             <div>
                 <h1 className="cart__title">Productos Adquiridos</h1>
                 <ul>
-                {cartList.map(item => <li key={item.id} className="produc__add">{item.item.nombre}</li>)}
+                {cartList.map(item => <li key={item.id} className="produc__add">{item.item.nombre} </li>
+                
+                )}
                 </ul>
 
                 <Link to="/products"><button  className="btn btn-dark botonAgregar m-1">Seguir Comprando</button></Link>

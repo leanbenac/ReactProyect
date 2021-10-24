@@ -1,7 +1,6 @@
 import React from 'react';
 import { Badge } from "react-bootstrap";
 
-
 const badge = () => {
     
     return(
@@ -9,4 +8,4 @@ const badge = () => {
     ); 
 }
 
-export default badge
+export default badge;
