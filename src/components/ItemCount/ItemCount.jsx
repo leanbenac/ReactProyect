@@ -8,8 +8,11 @@ const ItemCount = ({ initial, stock, onAdd}) => {
   const [qty, setQty] = useState(initial);
 
   const addProduct = (num) => {
-    setQty(qty + num);
+    setQty( qty + num);
+    
   };
+
+  
 
       return (
         

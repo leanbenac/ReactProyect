@@ -24,6 +24,7 @@ export const productsList = [
         precio: 250000, 
         img: moto2,
         modelo: 'Sport',
+        descripcion:'Alcanza una velocidad de 350km/h.',
         },
 
         {
@@ -31,7 +32,9 @@ export const productsList = [
         nombre: 'BMW', 
         stock:0, 
         precio: 189000, 
-        img: moto3
+        img: moto3,
+        modelo: 'Sport',
+        descripcion:'Alcanza una velocidad de 350km/h.',
         },
 
         {
@@ -41,6 +44,7 @@ export const productsList = [
         precio: 162000, 
         img: moto4,
         modelo: 'Sport',
+        descripcion:'Alcanza una velocidad de 350km/h.',
         },
 
         {
@@ -50,6 +54,7 @@ export const productsList = [
         precio: 153000, 
         img: moto5,
         modelo: 'Sport',
+        descripcion:'Alcanza una velocidad de 350km/h.',
         },
 
         {
@@ -59,6 +64,7 @@ export const productsList = [
         precio: 171000, 
         img: moto6,
         modelo: 'Sport',
+        descripcion:'Alcanza una velocidad de 350km/h.',
         },
 
 ];

@@ -37,7 +37,7 @@ const ItemDetail = ({ item }) => {
                     <li>Precio ${item.precio}</li>                       
                 </ul>
                     <p className="descripcion">{item.descripcion}</p>
-                {hide ? <ItemCount stock={item.stock} initial={0} onAdd={onAdd}/>:null}
+                {hide ? <ItemCount stock={item.stock} initial={1} onAdd={onAdd}/>:null}
 
                 {show ? <Link to={'/cart'}><button className="btn btn-dark botonAgregar mb-5">Finalizar Compra</button></Link>:null}
                 

@@ -1,0 +1,15 @@
+.cart__title{
+    color:darkcyan;
+    font-size: 3rem;
+    text-align: center;
+}
+
+
+.produc__add{
+    text-decoration: none;
+    list-style: none;
+    margin-top: 10px;
+    color:azure;
+    font-size: 2rem;
+    text-align: center;
+}
