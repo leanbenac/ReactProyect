@@ -2,8 +2,8 @@ import { useCartContext } from '../../Context/CartContext';
 import {Link} from 'react-router-dom';
 import "../Cart/Cart.css";
 
-const Cart = () => {
-    const {cartList, clearCart} = useCartContext();
+const Cart = (id) => {
+    const {cartList, clearCart, removeToCart} = useCartContext();
     
     var cartMessage = true;
 
@@ -21,10 +21,12 @@ const Cart = () => {
                         <h2>Aun no has agregado ningun producto</h2>
                         <Link to="/products"><button  className="btn btn-dark botonAgregar m-1 ">Elegir producto</button></Link>                    
                     </div>
-                :
+                    :
                     <div>
                         <ul>
-                            {cartList.map(item => <li key={item.id} className="produc__add">{item.item.nombre} {item.item.modelo} </li>)}
+                            {cartList.map(item => <li key={item.id} className="produc__add">{item.item.nombre} {item.item.modelo}                         
+                            <button onClick={()=>removeToCart(id)} className="btn btn-info  m-1">X</button></li>)}
+                            
                         </ul>
                         <div className="btnCart">
                             <Link to="/products"><button  className="btn btn-dark botonAgregar m-1">Seguir Comprando</button></Link>
