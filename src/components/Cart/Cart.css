@@ -12,3 +12,14 @@
     font-size: 2rem;
     text-align: center;
 }
+
+.btnCart{
+    text-align: center;
+    margin-top: 120px;
+    margin-bottom: 180px;
+}
+.btnCart__title{
+    margin-top: 115px;
+    color: azure;
+    font-size: 2rem;
+}

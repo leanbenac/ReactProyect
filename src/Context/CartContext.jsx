@@ -12,8 +12,16 @@ function CartContextProvider ({children}){
         setCartList([...cartList, item]);
     }
 
+    // para limpiar items del carrito
     function clearCart(){
         setCartList ([])
+    }
+
+    // para remover un item seleccionado
+    function removeToCart(id) {
+        let item = cartList.filter((item) => item.id === id);
+        
+        setCartList([...cartList, item]);
     }
 
     console.log();
@@ -21,7 +29,8 @@ function CartContextProvider ({children}){
         <CartContext.Provider value= {{
             cartList,
             addItem,
-            clearCart
+            clearCart,
+            removeToCart,
         }}>
             {children}
         </CartContext.Provider >

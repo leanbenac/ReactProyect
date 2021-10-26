@@ -15,4 +15,5 @@
     background-attachment:fixed;
     background-color: grey;
     height: auto;
+    max-height: auto;
 }
