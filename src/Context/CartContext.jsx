@@ -17,14 +17,10 @@ function CartContextProvider ({children}){
         setCartList ([])
     }
 
-    // para remover un item seleccionado
-    function removeToCart(id) {
-        let item = cartList.filter((item) => item.id === id);
-        
-        setCartList([...cartList, item]);
-    }
+    const removeToCart = (id) => setCartList(cartList.filter(item => item.id === id))
 
     console.log();
+
     return(
         <CartContext.Provider value= {{
             cartList,

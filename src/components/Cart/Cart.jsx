@@ -3,8 +3,9 @@ import {Link} from 'react-router-dom';
 import "../Cart/Cart.css";
 
 const Cart = (id) => {
-    const {cartList, clearCart, removeToCart} = useCartContext();
     
+    const {cartList, clearCart, removeToCart} = useCartContext();
+    console.log(removeToCart);
     var cartMessage = true;
 
     if(cartList.length>0){
