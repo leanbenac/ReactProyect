@@ -2,13 +2,14 @@ import { useCartContext } from '../../Context/CartContext';
 import {Link} from 'react-router-dom';
 import "../Cart/Cart.css";
 
-const Cart = (id) => {
+const Cart = () => {
     
     const {cartList, clearCart, clearItem} = useCartContext();
 
     const pxq = (a,b) => {
         return a*b
     }
+    
     let total = 0;
     
     const totalPxQ = (a, b) => {
@@ -26,7 +27,7 @@ const Cart = (id) => {
     }
 
     const finishBuy = () => {
-        alert(`Gracias por adquirir nuestro productos`);
+        alert(`Gracias por adquirir nuestros productos`);
     }
 
     return (
@@ -47,7 +48,7 @@ const Cart = (id) => {
                                 Marca: {item.item.nombre} <br></br>
                                 Modelo: {item.item.modelo} <br></br>
                                 Cantidad: {item.cantidad} <br></br>
-                                Precio: $ {item.precio} <br></br>
+                                Precio: $ {item.item.precio} <br></br>
                                 Total: ${pxq(item.cantidad,item.item.precio)} <br></br>
                             <button onClick={()=>clearItem(item.item.id)} className="btn btn-info  m-1"> X </button></li>
                             )}

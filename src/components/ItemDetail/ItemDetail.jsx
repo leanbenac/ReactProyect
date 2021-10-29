@@ -9,20 +9,37 @@ import './ItemDetail.css'
 
 const ItemDetail = ({ item }) => {
     
-    const {cartList, addItem} = useCartContext ();
-    console.log(cartList);
+    const {cartList, addItem, addCart } = useCartContext ();
+
+        const onAdd = (qty) => {
+            if (cartList.length === 0) {
+            addItem({item: item, cantidad: qty});
+            addCart(qty);
+            alert(`Agregaste al carrito ${qty} moto/s ${item.nombre}`);
+            setShow(true);
+            setHide(false);
+            } else  {
+                let idDouble = cartList.find(item => item.item.id === item.id)
+                if (idDouble) {
+                alert (`Ud agrego ${qty} unidades al carrito`);
+                addCart(qty);
+                idDouble.cantidad = idDouble.cantidad+qty;
+                setShow(true);
+                setHide(false);
+                } else {
+                alert (`Ud agrego ${qty} unidades al carrito`);
+                addCart(qty);
+                setShow(true);
+                setHide(false);
+                addItem({item: item, cantidad: qty})
+                }
+            }
+            };
 
     const [show, setShow] = useState (false);
 
     const [hide, setHide] = useState (true);
-
-    const onAdd =(qty)=>{
-        addItem({item: item, cantidad: qty});
-        alert(`Agregaste al carrito ${qty} moto/s ${item.nombre}`);
-        setShow(true);
-        setHide(false);
-    };
-
+    
     return (
         
         <div className="container">

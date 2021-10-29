@@ -1,12 +1,10 @@
 // import ItemCount from '../ItemCount/ItemCount';
 import '../Item/Item.css';
 import { Link } from 'react-router-dom';
-// import { useCartContext } from '../../Context/CartContext';
+
 
 const Item = ({nombre , precio , img , modelo , stock, id}) => {
-  // const { removeToCart } = useCartContext();
 
-  console.log(id)
     return (
       
       <div class="container">
