@@ -1,12 +1,22 @@
 import React from 'react';
-import "./CartWidget.css";
 import { TiShoppingCart } from "react-icons/ti";
+import { useCartContext } from '../../Context/CartContext';
+
+import "./CartWidget.css";
+
 
 
 const CartWidget = () => {
+
+    const {qBuy} = useCartContext();
+
     return(
         
-        <TiShoppingCart className="carrito"/>
+        <div>
+            <TiShoppingCart size={40}  color="white" className="carrito"/>
+            <div className="qty-display">{qBuy}</div>
+        </div>
+        
         
     ); 
 }

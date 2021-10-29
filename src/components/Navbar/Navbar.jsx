@@ -3,8 +3,8 @@ import Navbar from 'react-bootstrap/Navbar'
 import { Container ,Nav , NavDropdown} from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import CartWidget from '../CartWidget/CartWidget'
-import Badge from '../Badge/Badge'
 import logo from '../../img/logo.png'
+
 import '../Navbar/Navbar.css';
 
 
@@ -27,7 +27,7 @@ const NavBar = () => {
                 </NavDropdown>
                 </Nav>
                 <Nav>
-                <Nav.Link href="#deets">Carrito<CartWidget /><Badge /></Nav.Link>
+                <Nav.Link href="#deets"><CartWidget /></Nav.Link>
                 </Nav>
             </Navbar.Collapse>
             </Container>

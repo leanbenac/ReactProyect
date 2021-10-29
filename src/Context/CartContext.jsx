@@ -12,24 +12,37 @@ function CartContextProvider ({children}){
         setCartList([...cartList, item]);
     }
 
+    const [qBuy, setqBuy] = useState(0);
+
+    const addCart = (qty) => {
+        setqBuy (qBuy+qty)
+    }
     // para limpiar items del carrito
     function clearCart(){
         setCartList ([])
+        setqBuy(0)
     }
 
-    const removeToCart = (id) => setCartList(cartList.filter(item => item.id === id))
+    const clearItem = (id) => {
+        let item = cartList.find(item => item.item.id === id);
+        let index = cartList.indexOf(item);
+        cartList.splice(index,1);
+        setqBuy (qBuy-item.cantidad)
+        setCartList([...cartList])
+    }
 
-    console.log();
 
     return(
-        <CartContext.Provider value= {{
+        <CartContext.Provider value={{
             cartList,
             addItem,
             clearCart,
-            removeToCart,
+            addCart,
+            qBuy,
+            clearItem,
         }}>
             {children}
-        </CartContext.Provider >
+        </CartContext.Provider>
     )
 }
 

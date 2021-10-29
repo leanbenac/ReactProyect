@@ -4,12 +4,29 @@ import "../Cart/Cart.css";
 
 const Cart = (id) => {
     
-    const {cartList, clearCart, removeToCart} = useCartContext();
-    console.log(removeToCart);
-    var cartMessage = true;
+    const {cartList, clearCart, clearItem} = useCartContext();
 
+    const pxq = (a,b) => {
+        return a*b
+    }
+    let total = 0;
+    
+    const totalPxQ = (a, b) => {
+        let sum = a*b;
+        total = total + sum;
+        return total
+    }
+
+    total = cartList.map((item=> (totalPxQ(item.cantidad,item.item.precio))))
+    /* verdadera cuando el carrito está vacío o
+    falsa cuando tiene algun producto dentro*/
+    let cartMessage = true;
     if(cartList.length>0){
         cartMessage = false;
+    }
+
+    const finishBuy = () => {
+        alert(`Gracias por adquirir nuestro productos`);
     }
 
     return (
@@ -25,18 +42,25 @@ const Cart = (id) => {
                     :
                     <div>
                         <ul>
-                            {cartList.map(item => <li key={item.id} className="produc__add">{item.item.nombre} {item.item.modelo}                         
-                            <button onClick={()=>removeToCart(id)} className="btn btn-info  m-1">X</button></li>)}
-                            
+                            {cartList.map(item =>
+                            <li key={item.id} className="produc__add">
+                                Marca: {item.item.nombre} <br></br>
+                                Modelo: {item.item.modelo} <br></br>
+                                Cantidad: {item.cantidad} <br></br>
+                                Precio: $ {item.precio} <br></br>
+                                Total: ${pxq(item.cantidad,item.item.precio)} <br></br>
+                            <button onClick={()=>clearItem(item.item.id)} className="btn btn-info  m-1"> X </button></li>
+                            )}
                         </ul>
+                        <h3 className="total">Total Carrito: $ {total[total.length-1]} </h3>
                         <div className="btnCart">
-                            <Link to="/products"><button  className="btn btn-dark botonAgregar m-1">Seguir Comprando</button></Link>
                             <button onClick={()=>clearCart()} className="btn btn-dark botonAgregar m-1">Vaciar Carrito</button>
+                            <button onClick={()=>finishBuy()} className="btn btn-dark botonAgregar m-1">Finalizar Compra</button>                        
                         </div>
                     </div>
                 }
             </div>
-            </section>
+        </section>
     )
 }
 

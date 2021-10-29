@@ -1,7 +1,23 @@
 .carrito{
-    font-size: 22px;
+    font-size: 2rem;
 }
 .carrito:hover{
     color: aqua;
 
+}
+
+.qty-display {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;
+    font-size: 0.8rem;
+    position: absolute;
+    text-align: center;
+    line-height: 17px;
+}
+
+.qty-display:hover {
+    color: aqua;
 }
