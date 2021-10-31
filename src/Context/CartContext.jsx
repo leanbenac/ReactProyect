@@ -4,7 +4,7 @@ const CartContext = createContext ([]);
 
 export const useCartContext = () => useContext (CartContext);
 
-function CartContextProvider ({children}){
+const CartContextProvider = ({children}) =>{
 
     const [cartList, setCartList] = useState([]);
 
@@ -17,8 +17,9 @@ function CartContextProvider ({children}){
     const addCart = (qty) => {
         setqBuy (qBuy+qty)
     }
+    
     // para limpiar items del carrito
-    function clearCart(){
+    const clearCart = () =>{
         setCartList ([])
         setqBuy(0)
     }
@@ -30,7 +31,6 @@ function CartContextProvider ({children}){
         setqBuy (qBuy-item.cantidad)
         setCartList([...cartList])
     }
-
 
     return(
         <CartContext.Provider value={{

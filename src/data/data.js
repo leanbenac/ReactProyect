@@ -25,6 +25,7 @@ export const productsList = [
         img: moto2,
         modelo: 'Sport',
         descripcion:'Alcanza una velocidad de 350km/h.',
+        
         },
 
         {
