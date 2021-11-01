@@ -6,7 +6,8 @@ const ItemDetailContainer = ({ id }) => {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    //Nótese que lo que recibo del useParams en el componente padre es un string, por eso que el id lo parseo a entero
+    /*recibo del useParams en el componente padre es un string,
+    por eso que el id lo parseo a entero*/
     getProductById(parseInt(id), setProduct);
     // eslint-disable-next-line
   }, [id]);
