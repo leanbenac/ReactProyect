@@ -1,17 +1,47 @@
 import React, { useEffect, useState } from 'react';
 import Item from '../Item/Item';
-import { getAllProductsFromDB } from '../../helpers/getData';
-
+import { getFirestore } from '../../services/getFirebase';
+import { useParams } from 'react-router-dom';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 
 const ItemList = () => {
 
     const [products, setProducts] = useState([]);
 
-        useEffect(() => {
-          getAllProductsFromDB (setProducts);
-          //eslint-disable-next-line
-      }, []);
+    useEffect(() =>{
+      const db = getFirestore();
+      db.collection('Items').get()//toda la coleccion
+      .then(resp => setProducts(resp.docs.map(it => ({id: it.id, ...it.data() }))))//capturar la promesa
+    }, [])
+    
+    let {categorias} = useParams();
+
+    const showItems = async () => {
+      const db = getFirestore();
+      if (categorias) {
+        try {
+          const res = await db.collection('Items').where('category', '==', categorias).get();
+          setProducts(res.docs.map(item => ({id: item.id, ...item.data()})));
+        } catch (error) {
+          console.log(error);
+        }  
+      } else {
+        try {
+          const res = await db.collection('Items').orderBy('category', 'desc').get();
+          setProducts(res.docs.map(item => ({id: item.id, ...item.data()})));
+        } catch (error) {
+          console.log(error);
+        }  
+      }
+      setTimeout(2000)
+    }
+
+    useEffect(()=>{
+      showItems();
+      // eslint-disable-next-line
+    }, [categorias]);
+
+    console.log(products);
 
       return (
     <>
@@ -28,6 +58,7 @@ const ItemList = () => {
                     nombre={product.nombre}
                     stock={product.stock}
                     precio={product.precio}
+                    category={product.category}
                     img={product.img}
                     />
                   </div> 

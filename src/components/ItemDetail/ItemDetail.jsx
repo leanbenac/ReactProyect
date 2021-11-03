@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useCartContext } from "../../Context/CartContext";
 import ItemCount from "../ItemCount/ItemCount";
 import { Link } from "react-router-dom";
-import moto1 from "../../img/moto1.jpg";
+
 
 import "./ItemDetail.css";
 
@@ -46,13 +46,13 @@ const ItemDetail = ({ item }) => {
     <div className="container">
       <div className="row">
         <div className="card mt-5 mb-5 col-md-6">
-          <img src={moto1} className="card-img-top" alt="..." />
+          <img src={item.img} className="card-img-top" alt="..." />
 
           <h2>{item.nombre}</h2>
 
           <ul className="info-grid">
             <li>
-              Modelo<br></br> {item.modelo}
+              Modelo<br></br> {item.category}
             </li>
 
             <li>Precio ${item.precio}</li>

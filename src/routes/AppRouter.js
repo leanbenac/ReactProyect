@@ -21,7 +21,7 @@ const AppRouter = () => {
             <DetailPage />
           </Route>
 
-          <Route exact path="/products" >
+          <Route exact path="/categorias/:categorias" >
             <Products />
           </Route>
 
