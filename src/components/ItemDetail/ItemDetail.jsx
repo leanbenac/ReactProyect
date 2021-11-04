@@ -71,7 +71,7 @@ const ItemDetail = ({ item }) => {
             </Link>
           ) : null}
           {show ? (
-            <Link to={"/products"}>
+            <Link to={"/"}>
               <button className="btn btn-dark botonAgregar btn__detail mb-5">
                 Seguir Comprando
               </button>

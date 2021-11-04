@@ -3,6 +3,8 @@ import ItemDetail from "../ItemDetail/ItemDetail";
 import { getFirestore } from '../../services/getFirebase';
 import {useParams }from 'react-router';
 
+// import "../ItemDetail/ItemDetail.css";
+
 const ItemDetailContainer = ({ addCart }) => {
   const [itemFind, setitemFind] = useState(false);
   
@@ -29,8 +31,8 @@ const ItemDetailContainer = ({ addCart }) => {
   }, [id])
   
   return (
-    <section>
-      {itemFind ? <ItemDetail item={item} addCart={addCart}  /> : <p>Obteniendo producto...</p>}
+    <section  >
+      {itemFind ? <ItemDetail item={item} addCart={addCart}  /> : <p >Obteniendo producto...</p>}
     </section>
   );
 };

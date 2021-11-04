@@ -32,6 +32,11 @@ const CartContextProvider = ({children}) =>{
         setCartList([...cartList])
     }
 
+    const totalPxQ = () => {
+        return cartList.reduce((total, item)=>
+        (total + item.cantidad*item.item.precio), 0)
+    }
+
     return(
         <CartContext.Provider value={{
             cartList,
@@ -40,6 +45,7 @@ const CartContextProvider = ({children}) =>{
             addCart,
             qBuy,
             clearItem,
+            totalPxQ,
         }}>
             {children}
         </CartContext.Provider>
