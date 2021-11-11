@@ -1,40 +1,41 @@
 import React, { useEffect, useState } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
-import { getFirestore } from '../../services/getFirebase';
-import {useParams }from 'react-router';
-
-// import "../ItemDetail/ItemDetail.css";
+import { getFirestore } from "../../services/getFirebase";
+import { useParams } from "react-router";
 
 const ItemDetailContainer = ({ addCart }) => {
   const [itemFind, setitemFind] = useState(false);
-  
-  const [item, setItem] = useState({})
-  
-  let {id} = useParams();
-  
+  const [item, setItem] = useState({});
+
+  let { id } = useParams();
+
   const db = getFirestore();
 
-  const getItem = async() => {
+  const getItem = async () => {
     try {
-      const res = await db.collection('Items').doc(id).get();
-      setItem({id: res.id, ...res.data()});
+      const res = await db.collection("Items").doc(id).get();
+      setItem({ id: res.id, ...res.data() });
     } catch (error) {
       console.log(error);
-    }  
-    setitemFind(true)
+    }
+    setitemFind(true);
   };
-  
+
   useEffect(() => {
     setitemFind(false);
     getItem();
     // eslint-disable-next-line
-  }, [id])
-  
+  }, [id]);
+
   return (
-    <section  >
-      {itemFind ? <ItemDetail item={item} addCart={addCart}  /> : <p >Obteniendo producto...</p>}
+    <section>
+      {itemFind ? (
+        <ItemDetail item={item} addCart={addCart} />
+      ) : (
+        <p>Obteniendo producto...</p>
+      )}
     </section>
   );
 };
 
-export default ItemDetailContainer;
+export default ItemDetailContainer

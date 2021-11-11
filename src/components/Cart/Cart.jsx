@@ -49,19 +49,19 @@ import { getFirestore } from '../../services/getFirebase';
 
     updateItems.get()
     .then(collection => {
-      collection.docs.forEach(docSnapshot => {
-        batch.update(docSnapshot.ref, {
-          stock: docSnapshot.data().stock - cartList.find(it => it.item.id === docSnapshot.id).cantidad
-        })
-      })
-      batch.commit().then(resp => {
-        console.log('modificado');
-      })
-      .catch(er => {
-        console.log(er);
-      })
-    })
-  }
+		collection.docs.forEach(docSnapshot => {
+			batch.update(docSnapshot.ref, {
+			stock: docSnapshot.data().stock - cartList.find(it => it.item.id === docSnapshot.id).cantidad
+			})
+		})
+		batch.commit().then(resp => {
+			console.log('modificado');
+		})
+		.catch(er => {
+			console.log(er);
+		})
+	})
+	}
 
 		let cartMessage = true;
 		if (cartList.length > 0) {
@@ -89,8 +89,8 @@ import { getFirestore } from '../../services/getFirebase';
 										Marca: {item.item.nombre} <br></br>
 										Modelo: {item.item.modelo} <br></br>
 										Cantidad: {item.cantidad} <br></br>
-										Precio: $ {item.item.precio} <br></br>
-										Total: ${pxq(item.cantidad, item.item.precio)} <br></br>
+										Precio: Usd {item.item.precio} <br></br>
+										Total: Usd {pxq(item.cantidad, item.item.precio)} <br></br>
 										<button
 											onClick={() => clearItem(item.item.id)}
 											className="btn btn-info  m-1"

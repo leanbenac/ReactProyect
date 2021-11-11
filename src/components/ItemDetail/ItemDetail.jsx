@@ -4,7 +4,6 @@ import { useCartContext } from "../../Context/CartContext";
 import ItemCount from "../ItemCount/ItemCount";
 import { Link } from "react-router-dom";
 
-
 import "./ItemDetail.css";
 
 const ItemDetail = ({ item }) => {
@@ -47,22 +46,17 @@ const ItemDetail = ({ item }) => {
       <div className="row">
         <div className="card mt-5 mb-5 col-md-6">
           <img src={item.img} className="card-img-top" alt="..." />
-
           <h2>{item.nombre}</h2>
-
           <ul className="info-grid">
             <li>
               Modelo<br></br> {item.category}
             </li>
-
-            <li>Precio ${item.precio}</li>
+            <li>Precio Usd{item.precio}</li>
           </ul>
-
           <p className="descripcion">{item.descripcion}</p>
           {hide ? (
             <ItemCount stock={item.stock} initial={1} onAdd={onAdd} />
           ) : null}
-
           {show ? (
             <Link to={"/cart"}>
               <button className="btn btn-dark botonAgregar btn__detail mb-1">
@@ -83,4 +77,4 @@ const ItemDetail = ({ item }) => {
   );
 };
 
-export default ItemDetail;
+export default ItemDetail
