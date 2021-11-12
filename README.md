@@ -36,4 +36,8 @@ _algunas dependencias_
 
 
 --- 
+<<<<<<< HEAD
 Con ❤️  para todos por [Leandro Benac](https://github.com/leanbenac) 😊
+=======
+Con ❤️  para todos por [Leandro Benac](https://github.com/leanbenac) 😊
+>>>>>>> d3b2b7191899feb12da5275aedabbef9c5b54d2f
