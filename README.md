@@ -1,7 +1,7 @@
 #  🏍️ 💨 Reznik    
 ## Motorcycle Ecommerce   
 
-Este proyecto que hice para alcanzar los objetivos del curso de React js que realice en Coder House.
+Este proyecto lo hice para alcanzar los objetivos del curso de React js realizado en Coder House.
 Mi pasion por las motos me inspiro a crear un ecommerce de motocicletas de estilo Naked y Sport de alta gama.
 
 ------
@@ -36,8 +36,7 @@ _algunas dependencias_
 
 
 --- 
-<<<<<<< HEAD
+
 Con ❤️  para todos por [Leandro Benac](https://github.com/leanbenac) 😊
-=======
-Con ❤️  para todos por [Leandro Benac](https://github.com/leanbenac) 😊
->>>>>>> d3b2b7191899feb12da5275aedabbef9c5b54d2f
+
+
