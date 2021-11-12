@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #  🏍️ 💨 Reznik    
 ## Motorcycle Ecommerce   
 
@@ -38,11 +37,3 @@ _algunas dependencias_
 
 --- 
 Con ❤️  para todos por [Leandro Benac](https://github.com/leanbenac) 😊
-
-
-
-=======
-#  Reznik Motorcycle Ecommerce  🚀
-  - 
-MI proyecto es una tienda de motocicletas!
->>>>>>> 8d4c012e6d3e86231fd20d79cfde6ceaaa8a6b85
