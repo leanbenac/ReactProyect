@@ -1,5 +1,8 @@
 import ItemDetailContainer from '../components/ItemDetailContainer/ItemDetailContainer'
 import { useParams } from "react-router-dom";
+import React from 'react';
+
+
 
 const DetailPage = () => {
 

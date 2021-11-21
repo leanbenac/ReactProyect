@@ -27,9 +27,6 @@ const NavBar = () => {
             </Nav.Link>
             <Nav.Link>About Us</Nav.Link>
             <NavDropdown title="Motos" id="collasible-nav-dropdown">
-            <NavDropdown.Item>
-                <Link to="/categorias"> All Styles </Link>
-              </NavDropdown.Item>
               <NavDropdown.Item>
                 <Link to="/categorias/sport"> Sport </Link>
               </NavDropdown.Item>

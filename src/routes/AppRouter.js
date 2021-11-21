@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React from 'react';
 
 import NavBar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
@@ -19,10 +20,6 @@ const AppRouter = () => {
           </Route>
 
           <Route exact path="/categorias/:categorias">
-            <Products />
-          </Route>
-
-          <Route exact path="/categorias">
             <Products />
           </Route>
           

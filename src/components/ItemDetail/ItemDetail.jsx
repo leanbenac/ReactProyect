@@ -44,7 +44,8 @@ const ItemDetail = ({ item }) => {
   return (
     <div className="container">
       <div className="row">
-        <div className="card mt-5 mb-5 col-md-6">
+        <div className="mt-5 mb-4 col-sm-3 col-md-4"></div>
+        <div className="card mt-5 mb-5 col-sm-6 col-md-4">
           <img src={item.img} className="card-img-top" alt="..." />
           <h2>{item.nombre}</h2>
           <ul className="info-grid">
@@ -72,6 +73,7 @@ const ItemDetail = ({ item }) => {
             </Link>
           ) : null}
         </div>
+        <div className=" mt-5 mb-5 col-sm-3 col-md-4"></div>
       </div>
     </div>
   );
