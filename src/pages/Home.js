@@ -1,11 +1,10 @@
-import CarouselZ  from '../components/Carousel/CarouselZ';
+import CarouselZ from "../components/Carousel/CarouselZ";
 import React from "react";
 import ItemListContainer from "../components/ItemListContainer/ItemListContainer";
 
-
 const Home = () => {
   return (
-    <div >
+    <div>
       <CarouselZ />
       <ItemListContainer />
     </div>

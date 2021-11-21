@@ -1,54 +1,53 @@
 .img-detail {
-    width: 100%;
-    max-width: 300px; 
+  width: 100%;
+  max-width: 300px;
 }
 
 .detail-info {
-    background-color: white;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-left: 20px;
-    margin-top: 40px;
-    max-width: 350px;
-    
+  background-color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 20px;
+  margin-top: 40px;
+  max-width: 350px;
 }
 
 .descripcion {
-    text-align: left;
-    padding-left: 20px;
+  text-align: left;
+  padding-left: 20px;
 }
 
 .info-grid {
-    margin-top: 15px;
-    margin-bottom: 10px;
-    padding-right: 40px;
-    list-style: none;
-    display: grid;
-    grid-template: 1fr/1fr 1fr;
-    gap: 20px 10px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  padding-right: 40px;
+  list-style: none;
+  display: grid;
+  grid-template: 1fr/1fr 1fr;
+  gap: 20px 10px;
 }
 
 li {
-    margin-top: -20px;
+  margin-top: -20px;
 }
 
-.btn:hover{
-    color:darkcyan;
+.btn:hover {
+  color: darkcyan;
 }
 
-.btn__detail{
-    text-align: center;
+.btn__detail {
+  text-align: center;
 }
 
 @media only screen and (max-width: 768px) {
-    .card {
-        margin-left: 0px;
-    }
-    }
+  .card {
+    margin-left: 0px;
+  }
+}
 
-    @media only screen and (max-width: 479px) {
-    .card {
-        margin-left: 4px;
-    }
-    }
+@media only screen and (max-width: 479px) {
+  .card {
+    margin-left: 4px;
+  }
+}

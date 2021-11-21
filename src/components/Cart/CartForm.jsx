@@ -1,114 +1,129 @@
 import React from "react";
-import { useForm } from "../Cart/hookForm";
-import "../Cart/CartForm.css";
+import { Row, Col, Button } from "react-bootstrap";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 
-const initialForm = {
-  name: "",
-  email: "",
-  subject: "",
-  comments: "",
-};
+import "./CartForm.css";
 
-const validationsForm = (form) => {
-  let errors = {};
-  let regexName = /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/;
-  let regexEmail = /^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$/;
-  let regexComments = /^.{1,255}$/;
-
-  if (!form.name.trim()) {
-    errors.name = "El campo 'Nombre' es requerido";
-  } else if (!regexName.test(form.name.trim())){
-    errors.name = "Solo acepta letras y espacios en blanco";
-  }
-
-  if (!form.email.trim()) {
-    errors.email = "El campo 'Email' es requerido";
-  } else if (!regexEmail.test(form.email.trim())){
-    errors.email = "El campo 'Email' es incorrecto";
-  }
-
-  if (!form.subject.trim()) {
-    errors.subject = "El campo 'Asunto a tratar' es requerido";
-  }
-
-  if (!form.comments.trim()) {
-    errors.comments = "El campo 'Comentarios' es requerido";
-  }else if (!regexComments.test(form.comments.trim())){
-    errors.comments = "No debe exceder los 255 caracteres";
-  }
-
-  return errors;
-};
-
-let styles = {
-  fontWeight: "bold",
-  color: "#9c2430",
-};
-
-const CartForm = () => {
-  const {
-    form,
-    errors,
-    // loading,
-    // response,
-    handleChange,
-    handleBlur,
-    handleSubmit,
-  } = useForm(initialForm, validationsForm);
+const CartForm = ({ clearCart, finishBuy, setDataForm, dataForm }) => {
+  const schema = Yup.object().shape({
+    fullName: Yup.string()
+      .required("Campo requerido")
+      .min(5, "Min 5 caracteres")
+      .max(255, "Max 255 caracteres"),
+    email: Yup.string()
+      .required("Campo requerido")
+      .email("Correo invalido")
+      .max(255, "Max 255 caracteres"),
+    phone: Yup.string()
+      .required("Ingrese solo números")
+      .min(8, "Min 8 caracteres")
+      .matches(
+        /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
+        "El teléfono no es válido"
+      ),
+    payment: Yup.string().required("Campo requerido"),
+  });
 
   return (
-    <form onSubmit={handleSubmit} className="container form">
-      <label htmlFor="nombre">Nombre</label>
-      <input
-        type="text"
-        id="nombre"
-        name="name"
-        placeholder="Escribe tu nombre"
-        onBlur={handleBlur}
-        onChange={handleChange}
-        value={form.nombre}
-        required
-      />
-      {errors.name && <p style={styles}>{errors.name}</p>}
-      <label htmlFor="email">Email</label>
-
-      <input
-        type="text"
-        id="nombre"
-        name="email"
-        placeholder="Escribe tu email"
-        onBlur={handleBlur}
-        onChange={handleChange}
-        value={form.email}
-        required
-      />
-      {errors.email && <p style={styles}>{errors.email}</p>}
-      <label htmlFor="submit">Asunto</label>
-      <input
-        type="text"
-        id="nombre"
-        name="subject"
-        placeholder="Asunto a tratar"
-        onBlur={handleBlur}
-        onChange={handleChange}
-        value={form.subject}
-        required
-      />
-      {errors.subject && <p style={styles}>{errors.subject}</p>}
-      <textarea
-        name="comments"
-        cols="50"
-        rows="5"
-        placeholder="Escribe tus comentarios"
-        onBlur={handleBlur}
-        onChange={handleChange}
-        value={form.comments}
-        required
-      ></textarea>
-      {errors.comments && <p style={styles}>{errors.comments}</p>}
-      <button type="submit">Enviar</button>
-    </form>
+    <>
+      <Formik
+        initialValues={{
+          fullName: "",
+          email: "",
+          phone: "",
+          payment: "",
+        }}
+        validationSchema={schema}
+        onSubmit={(e, { resetForm }) => {
+          setDataForm({ ...e });
+          finishBuy(dataForm);
+          resetForm();
+        }}
+      >
+        {() => (
+          <Form>
+            <Row className="m-2">
+              <div className="position-relative col-sm-12 col-md-4 col-lg-12">
+                <label className="form-label text-white">
+                  Nombre y Apellido
+                </label>
+                <Field
+                  className="form-control"
+                  type="text"
+                  name="fullName"
+                  placeholder="Nombre y Apellido"
+                />
+                <ErrorMessage
+                  name="fullName"
+                  component="div"
+                  className="field-error text-danger"
+                />
+              </div>
+              <div className="position-relative col-sm-12 col-md-4 col-lg-12">
+                <label className="form-label text-white">Email</label>
+                <Field
+                  className="form-control"
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                />
+                <ErrorMessage
+                  name="email"
+                  component="div"
+                  className="field-error text-danger"
+                />
+              </div>
+              <div className="position-relative  col-sm-12 col-md-4 col-lg-12">
+                <label className="form-label text-light">Telefono</label>
+                <Field
+                  className="form-control"
+                  type="text"
+                  name="phone"
+                  placeholder="Telefono"
+                />
+                <ErrorMessage
+                  name="phone"
+                  component="div"
+                  className="field-error text-danger"
+                />
+              </div>
+            </Row>
+            <Row className="m-2">
+              <Col className="position-relative  col-sm-12 col-md-4 col-lg-12">
+                <label className="form-label text-white">Medio de Pago</label>
+                <Field
+                  as="select"
+                  className="form-select"
+                  name="payment"
+                  defaultValue="Efectivo"
+                >
+                  <option>Elegir medio de pago</option>
+                  <option>Efectivo</option>
+                  <option>Tarjeta Débito</option>
+                  <option>Tarjeta Crédito</option>
+                  <option>Transferencia</option>
+                </Field>
+                <ErrorMessage
+                  name="payment"
+                  component="div"
+                  className="field-error text-danger"
+                />
+              </Col>
+            </Row>
+            <Row className="m-4">
+              <Button className="mb-2" onClick={clearCart} variant="danger">
+                Eliminar Carrito
+              </Button>{" "}
+              <Button className="mb-2" type="submit" variant="success">
+                Terminar Compra
+              </Button>
+            </Row>
+          </Form>
+        )}
+      </Formik>
+    </>
   );
 };
 
-export default CartForm;
+export default CartForm

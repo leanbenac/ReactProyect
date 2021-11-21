@@ -5,7 +5,7 @@ import "./CarouselZ.css";
 
 function CarouselZ() {
   return (
-    <Carousel >
+    <Carousel>
       <Carousel.Item>
         <img
           className="d-block w-100 carousel__img "

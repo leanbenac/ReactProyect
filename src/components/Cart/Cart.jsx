@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { useCartContext } from "../../Context/CartContext";
 import { Link } from "react-router-dom";
 import "../Cart/Cart.css";
 import firebase from "firebase";
+import Swal from "sweetalert2";
 import { getFirestore } from "../../services/getFirebase";
 import CartForm from "../Cart/CartForm";
-
+import CartTable from "./CartTable";
 
 const Cart = () => {
   const { cartList, clearCart, clearItem, totalPxQ } = useCartContext();
@@ -13,14 +14,16 @@ const Cart = () => {
     return a * b;
   };
 
-  const finishBuy = () => {
+  const [dataForm, setDataForm] = useState({});
+
+  const finishBuy = (dataForm) => {
     let order = {};
     order.date = firebase.firestore.Timestamp.fromDate(new Date());
     order.buyer = {
-      name: "Leandro Iván",
-      email: "leo_8840@hotmail.com",
-      phone: 1133369420,
-      payment: "card",
+      name: dataForm.fullName,
+      email: dataForm.email,
+      phone: dataForm.phone,
+      payment: dataForm.payment,
     };
     order.total = totalPxQ();
     order.items = cartList.map((cartItem) => {
@@ -28,33 +31,27 @@ const Cart = () => {
       const item = cartItem.item.nombre;
       const precio = pxq(cartItem.item.precio, cartItem.cantidad);
       const cantidad = cartItem.cantidad;
-
       return { id, item, precio, cantidad };
     });
 
     const dbOrder = getFirestore();
-
     const orderReady = dbOrder.collection("orders");
     orderReady
       .add(order)
       .then((IdDocumento) => {
-        setTimeout(
-          alert(
-            `Su número de pedido es ${IdDocumento.id} y sera procesado en instantes`
-          ),
-          3000
-        );
+        Swal.fire({
+          icon: "info",
+          title: `Su orden ${IdDocumento.id} se proceso correctamente, gracias por habernos elegido`,
+          showConfirmButton: false,
+          timer: 3000,
+        });
       })
       .catch((error) => {
         console.log(error);
       })
       .finally(() => {
-        alert(
-          `Su compra se ha realizado con éxito, a la brevedad recibira su recibo y factura ¡gracias por su compra!`
-        );
+        clearCart();
       });
-
-    clearCart();
 
     const updateItems = dbOrder.collection("Items").where(
       firebase.firestore.FieldPath.documentId(),
@@ -63,7 +60,6 @@ const Cart = () => {
     );
 
     const batch = dbOrder.batch();
-
     updateItems.get().then((collection) => {
       collection.docs.forEach((docSnapshot) => {
         batch.update(docSnapshot.ref, {
@@ -103,46 +99,29 @@ const Cart = () => {
           </div>
         ) : (
           <div>
-            <ul>
-              {cartList.map((item) => (
-                <li key={item.nombre} className="produc__add">
-                  Marca: {item.item.nombre} <br></br>
-                  Modelo: {item.item.modelo} <br></br>
-                  Cantidad: {item.cantidad} <br></br>
-                  Precio: Usd {item.item.precio} <br></br>
-                  Total: Usd {pxq(item.cantidad, item.item.precio)} <br></br>
-                  <button
-                    onClick={() => clearItem(item.item.id)}
-                    className="btn btn-info  m-1"
-                  >
-                    {" "}
-                    X{" "}
-                  </button>
-                </li>
-              ))}
-            </ul>
-            <h3 className="total">Total Carrito: USD {totalPxQ()}</h3>
-
-            <div className="btnCart">
-              <button
-                onClick={() => clearCart()}
-                className="btn btn-dark botonAgregar m-1"
-              >
-                Vaciar Carrito
-              </button>
-              <button
-                onClick={() => finishBuy()}
-                className="btn btn-dark botonAgregar m-1"
-              >
-                Finalizar Compra
-              </button>
+            <div className="cart">
+              <div className="cartTable">
+                <CartTable
+                  cartList={cartList}
+                  clearItem={clearItem}
+                  totalPxQ={totalPxQ}
+                  pxq={pxq}
+                />
+              </div>
+              <div className="cartForm">
+                <CartForm
+                  finishBuy={finishBuy}
+                  clearCart={clearCart}
+                  setDataForm={setDataForm}
+                  dataForm={dataForm}
+                />
+              </div>
             </div>
           </div>
         )}
       </div>
-      <CartForm />
     </section>
   );
 };
 
-export default Cart;
+export default Cart

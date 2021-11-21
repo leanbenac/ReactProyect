@@ -1,6 +1,6 @@
 import "../Item/Item.css";
 import { Link } from "react-router-dom";
-import React from 'react'
+import React from "react";
 
 const Item = ({ nombre, precio, img, stock, id }) => {
   return (
@@ -26,4 +26,4 @@ const Item = ({ nombre, precio, img, stock, id }) => {
   );
 };
 
-export default Item
+export default Item;

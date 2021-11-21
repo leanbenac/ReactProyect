@@ -76,7 +76,7 @@ const ItemList = () => {
             striped
             variant="success"
             animated="boolean"
-            label="Visualizing 40%"
+            label="Visualizing products 40%"
             now={35}
             key={1}
           />

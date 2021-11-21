@@ -1,13 +1,15 @@
-import React from 'react'
+import React from "react";
 
-import './styles/Page404.css'
+import "./styles/Page404.css";
 
 const Page404 = () => {
-    return (
-        <main className="nofound-container">
-            <h1>Página no encontrada <br/> Error 404- </h1>
-        </main>
-    )
-}
+  return (
+    <main className="nofound-container">
+      <h1>
+        Página no encontrada <br /> Error 404-{" "}
+      </h1>
+    </main>
+  );
+};
 
-export default Page404
+export default Page404;

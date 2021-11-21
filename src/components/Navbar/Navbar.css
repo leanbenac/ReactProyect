@@ -1,28 +1,29 @@
 .imgNav {
-    height: 50px;
+  height: 50px;
 }
 
-.imgNav{  
-    transition: 2s;  
-    box-shadow:rgb(255, 255, 255);
-    animation: movimiento 3s ease-in-out infinite;
+.imgNav {
+  transition: 2s;
+  box-shadow: rgb(255, 255, 255);
+  animation: movimiento 3s ease-in-out infinite;
 }
 
-@keyframes movimiento{
-        0%{
-                    transform: translate(0px) translateZ(0)
-        }
-        50%{
-        
-            transform: translateY(5px) translateZ(0)
-        }
-        to{transform: translate(0) translateZ(0)}
+@keyframes movimiento {
+  0% {
+    transform: translate(0px) translateZ(0);
+  }
+  50% {
+    transform: translateY(5px) translateZ(0);
+  }
+  to {
+    transform: translate(0) translateZ(0);
+  }
 }
 
-.link{
-    text-decoration:  none;
-    color:aliceblue;
+.link {
+  text-decoration: none;
+  color: aliceblue;
 }
-.link:hover{
-    color: cadetblue;
+.link:hover {
+  color: cadetblue;
 }

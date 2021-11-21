@@ -38,4 +38,4 @@ const ItemDetailContainer = ({ addCart }) => {
   );
 };
 
-export default ItemDetailContainer
+export default ItemDetailContainer;

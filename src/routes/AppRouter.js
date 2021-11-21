@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import React from 'react';
-
+import React from "react";
 import NavBar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import Cart from "../components/Cart/Cart";
@@ -18,19 +17,15 @@ const AppRouter = () => {
           <Route exact path="/detail/:id">
             <DetailPage />
           </Route>
-
           <Route exact path="/categorias/:categorias">
             <Products />
           </Route>
-          
-          <Route exact path="/" >
-            <Home  />
+          <Route exact path="/">
+            <Home />
           </Route>
-
           <Route exact path="/cart">
             <Cart />
           </Route>
-
           <Route path="*">
             <Page404 />
           </Route>
@@ -41,4 +36,4 @@ const AppRouter = () => {
   );
 };
 
-export default AppRouter
+export default AppRouter;
